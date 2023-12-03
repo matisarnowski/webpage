@@ -1,3 +1,4 @@
+from PIL import Image
 import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
@@ -13,10 +14,19 @@ def load_lottieurl(url):
     return r.json()
 
 
+# Use local CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+
+local_css("styles/style.css")
+
 # ---- Load Assets ----
 lottie_coding = load_lottieurl(
     "https://lottie.host/5627c703-4224-48ab-a721-e650f35c3c0f/FrnjXWGhia.json"
 )
+image_code = Image.open("images\moja_stronka_1.jpg")
 
 # ---- Header Section ----
 st.subheader("Cześć jestem Mateusz :wave:")
@@ -57,7 +67,7 @@ with st.container():
     image_column, text_column = st.columns((1, 2))
 with image_column:
     # insert the image
-    st.write("")
+    st.image(image_code)
 with text_column:
     st.subheader("Oto projekt tejże stronki Internetowej oraz moje CV...")
     st.write(
@@ -68,6 +78,36 @@ with text_column:
              """
     )
     st.write("* Oto link do CV z Netlify.")
-    st.write("[Moje CV >](https://sarnowskimateusz.netlify.app/)")
+    st.markdown("[Moje CV >](https://sarnowskimateusz.netlify.app/)")
     st.write("* A po lewej stronie kod tej stronki.")
-    st.write("[Ten projekt >]()")
+    st.write(
+        """
+        Ostatnio przeczytane książki przeze mnie, które serdecznie polecam to: \n
+        ** Racjonalność Steven Pickling \n
+        ** Potęga Nieskończoności Steven Strogatz \n
+        ** Deep Learning Głęboka Rewolucja Terrens Sejnowski \n
+        ** Demon w Maszynie Paul Davies \n
+        ** Umysł matematyczny Bartosz Brożek, Mateusz Hohold \n
+        """
+    )
+
+with st.container():
+    st.write("---")
+    st.header("Wyślij mi tu swój adres email, abym się z Tobą skontaktował!")
+    st.write("##")
+
+    # Documention: https://formsubmit.co/ !!! CHANGE EMAIL ADDRESS !!!
+    contact_form = """
+    <form action="https://formsubmit.co/matsarnow@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="name" placeholder="Twoje imię" required>
+        <input type="email" name="email" placeholder="Twój email" required>
+        <textarea name="message" placeholder="Twoja wiadomość do mnie: " required></textarea>
+        <button type="submit">Send</button>
+    </form>
+    """
+    left_column, right_column = st.columns(2)
+    with left_column:
+        st.markdown(contact_form, unsafe_allow_html=True)
+    with right_column:
+        st.empty()

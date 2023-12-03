@@ -65,6 +65,6 @@ with text_column:
              No i oczywiście zamieszczam na GitHub. Ale z nowym Visual Studio Code, który jest programem open source, to wszystko jest zautomatyzowane.
              """)
     st.write("* Oto link do CV z Netlify.")
-    st.write("[Moje CV >](https://sarnowskimateusz.netlify.app/)")
+    #st.write("[Moje CV >](https://sarnowskimateusz.netlify.app/)")
     st.write("* Oto link do tej stronki.")
     st.write("[Ten projekt >]()")

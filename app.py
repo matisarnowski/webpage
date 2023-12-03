@@ -57,14 +57,17 @@ with st.container():
     image_column, text_column = st.columns((1, 2))
 with image_column:
     # insert the image
+    st.write("")
 with text_column:
-    st.subheader("Oto projekt tejże stronki Internetowej wrzucony przy użyciu Netlify...")
-    st.write("""
+    st.subheader("Oto projekt tejże stronki Internetowej oraz moje CV...")
+    st.write(
+        """
              Z Netlify nauczyłem się korzystać podczas krótkiego kursu, na którym tworzyłem stronkę ze swoim CV.
              Na codzień po prostu wrzucam coś tylko na Facebooka.
              No i oczywiście zamieszczam na GitHub. Ale z nowym Visual Studio Code, który jest programem open source, to wszystko jest zautomatyzowane.
-             """)
+             """
+    )
     st.write("* Oto link do CV z Netlify.")
-    #st.write("[Moje CV >](https://sarnowskimateusz.netlify.app/)")
-    st.write("* Oto link do tej stronki.")
+    st.write("[Moje CV >](https://sarnowskimateusz.netlify.app/)")
+    st.write("* A po lewej stronie kod tej stronki.")
     st.write("[Ten projekt >]()")

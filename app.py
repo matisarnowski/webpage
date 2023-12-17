@@ -1,6 +1,7 @@
 from PIL import Image
 import requests
 import streamlit as st
+import os
 from streamlit_lottie import st_lottie
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -20,13 +21,13 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
-local_css("styles/style.css")
+local_css(os.path.join("styles", "style.css"))
 
 # ---- Load Assets ----
 lottie_coding = load_lottieurl(
     "https://lottie.host/5627c703-4224-48ab-a721-e650f35c3c0f/FrnjXWGhia.json"
 )
-image_code = Image.open("images\moja_stronka_1.jpg")
+image_code = Image.open(os.path.join("images", "moja_stronka_1.jpg"))
 
 # ---- Header Section ----
 st.subheader("Cześć jestem Mateusz :wave:")
